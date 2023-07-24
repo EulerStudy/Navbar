@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <title>Navbar</title>
+  <script src="https://kit.fontawesome.com/2621c02619.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    :root {
+      --text-color: #f0f4f5;
+      --background-color: #263343;
+      --accent-color: #d49466
+    }
+    body {
+      margin: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--background-color);
+      padding: 8px 12px;
+    }
+    .navbar_logo {
+      font-size: 24px;
+      color: var(--accent-color);
+    }
+
+    .navbar_menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+    }
+    .navbar_menu li {
+      padding: 8px 12px;
+    }
+    .navbar_menu li:hover {
+      background-color: var(--accent-color);
+      border-radius: 4px;
+    }
+    .navbar_icons {
+      list-style: none;
+      color: var(--text-color);
+      display: flex;
+      padding-left: 0;
+    }
+    .navbar_icons li {
+      padding: 8px 12px;
+    }
+    .navbar_toggleBtn {
+      position: absolute;
+      right: 32px;
+      font-size: 24px;
+      color: var(--accent-color);
+      display: none;
+    }
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+      }
+      .navbar_menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        display: none;
+      }
+      .navbar_menu li {
+        width: 100%;
+        text-align: center;
+      }
+      .navbar_icons {
+        justify-content: center;
+        width: 100%;
+        display: none;
+      }
+      .navbar_toggleBtn {
+        display: block;
+      }
+      .navbar_menu.active,
+      .navbar_icons.active {
+        display: flex;
+      }
+    }
+  </style>
+  <nav class="navbar">
+    <div class="navbar_logo">
+      <i class="fa-brands fa-accusoft"></i>
+      <a href="#">DreamCoding</a>
+    </div>
+    <ul class="navbar_menu">
+      <li><a href="">Home</a></li>
+      <li><a href="">Gallery</a></li>
+      <li><a href="">Weddings</a></li>
+      <li><a href="">FAQ</a></li>
+      <li><a href="">Bookings</a></li>   
+    </ul>
+    <ul class="navbar_icons">
+      <li><i class="fa-brands fa-twitter"></i></li>
+      <li><i class="fa-brands fa-facebook"></i></li>
+    </ul>
+    <a href="#" class="navbar_toggleBtn"><i class="fa-solid fa-bars"></i></a>
+  </nav>
+  <script>
+    const toggleBtn = document.querySelector('.navbar_toggleBtn')
+    const menu = document.querySelector('.navbar_menu')
+    const icons = document.querySelector('.navbar_icons')
+
+    toggleBtn.addEventListener('click', ()=>{
+      menu.classList.toggle('active')
+      icons.classList.toggle('active')
+    })
+  </script>
+</body>
+</html>
